@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 import os
 
 local = False
-if local == True:
+if local == False:
     caminho = os.getenv("DATABASE_URL")
 else:
     caminho = "sqlite:///comunidade.db"
