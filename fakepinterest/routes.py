@@ -5,7 +5,9 @@ from fakepinterest.models import Usuario, Foto
 from flask_login import login_required, login_user, logout_user, current_user
 from fakepinterest.forms import FormLogin, FormCriarConta, FormFoto
 import os
-from werkzeug.utils import secure_filename
+import cloudinary
+import cloudinary.uploader
+
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -40,14 +42,11 @@ def perfil(id_usuario):
         form_foto = FormFoto()
         if form_foto.validate_on_submit():
             arquivo = form_foto.foto.data
-            nome_seguro = secure_filename(arquivo.filename)
             # Salvar arquivo
-            caminho = os.path.join(os.path.abspath(os.path.dirname(__file__)), 
-            app.config["UPLOAD_FOLDER"], nome_seguro)
+            upload = cloudinary.uploader.upload(arquivo, folder="fakepinterest")
 
-            arquivo.save(caminho)
-            # Armazenar no banco
-            foto = Foto(imagem=nome_seguro, id_usuario=current_user.id)
+            foto = Foto(imagem=upload["secure_url"], id_usuario=current_user.id)
+
             database.session.add(foto)
             database.session.commit()
 
