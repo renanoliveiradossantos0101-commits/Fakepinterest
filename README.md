@@ -1,7 +1,12 @@
 # 📌 FakePinterest
 
-Projeto inspirado no Pinterest, desenvolvido em Python com Flask utilizando PostgreSQL em produção e Cloudinary para armazenamento de imagens.  
-A aplicação está hospedada no Render e foi criada com foco em aprendizado de desenvolvimento web backend.
+🔗 **Aplicação online:** https://fakepinterest-goqd.onrender.com  
+
+> ⚠️ A aplicação utiliza o plano gratuito do Render.  
+> No primeiro acesso após um período de inatividade, o site pode levar alguns segundos para iniciar.
+
+Projeto inspirado no Pinterest, desenvolvido em Python com Flask, utilizando PostgreSQL em ambiente de produção e Cloudinary para armazenamento de imagens.  
+A aplicação está hospedada no Render e tem como objetivo o aprendizado e a prática de desenvolvimento web backend.
 
 ---
 
@@ -43,4 +48,3 @@ A aplicação está hospedada no Render e foi criada com foco em aprendizado de 
 > Nenhuma imagem é armazenada localmente no servidor.
 
 ---
-
